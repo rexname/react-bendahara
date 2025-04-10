@@ -1,0 +1,3 @@
+name= "react"
+compatibility_date= "2025-04-10"
+assets= {directory= "./dist"}
