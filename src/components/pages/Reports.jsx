@@ -48,38 +48,42 @@ const Reports = () => {
       </div>
 
       {/* Reports list */}
-      <div className="bg-white rounded-xl shadow-sm divide-y divide-gray-200">
+      <div className="space-y-4">
         {reports.map((report) => (
           <div
             key={report.id}
-            className="p-6 hover:bg-gray-50 transition-colors duration-150"
+            className="card bg-base-200 shadow-md hover:shadow-lg transition-shadow"
           >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-              <div className="mb-4 md:mb-0">
-                <h3 className="text-lg font-medium">{report.title}</h3>
-                <div className="flex items-center mt-2 space-x-4 text-sm text-gray-500">
-                  <span>{report.type}</span>
-                  <span>•</span>
-                  <span>
-                    {new Date(report.date).toLocaleDateString("id-ID", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                  </span>
-                  <span>•</span>
-                  <span>{report.downloadCount} kali diunduh</span>
+            <div className="card-body p-4">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div className="mb-4 md:mb-0">
+                  <h3 className="text-lg font-semibold text-primary">
+                    {report.title}
+                  </h3>
+                  <div className="flex items-center mt-2 space-x-4 text-sm text-primary-content opacity-70">
+                    <span>{report.type}</span>
+                    <span>•</span>
+                    <span>
+                      {new Date(report.date).toLocaleDateString("id-ID", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </span>
+                    <span>•</span>
+                    <span>{report.downloadCount} kali diunduh</span>
+                  </div>
                 </div>
-              </div>
-              <div className="flex space-x-3">
-                <button className="btn btn-outline">
-                  <FiDownload className="mr-2" />
-                  Unduh
-                </button>
-                <button className="btn btn-outline">
-                  <FiPrinter className="mr-2" />
-                  Cetak
-                </button>
+                <div className="flex space-x-3">
+                  <button className="btn btn-outline">
+                    <FiDownload className="mr-2" />
+                    Unduh
+                  </button>
+                  <button className="btn btn-outline">
+                    <FiPrinter className="mr-2" />
+                    Cetak
+                  </button>
+                </div>
               </div>
             </div>
           </div>

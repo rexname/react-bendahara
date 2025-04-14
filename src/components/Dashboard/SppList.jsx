@@ -57,44 +57,44 @@ const SppList = ({ payments, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="bg-base-200 rounded-xl shadow-sm overflow-hidden w-full">
-      <div className="p-6">
-        <h3 className="text-lg font-semibold">
+    <div className="card bg-base-200 shadow-md hover:shadow-lg transition-shadow rounded-xl overflow-hidden w-full">
+      <div className="card-body p-6">
+        <h3 className="text-lg font-semibold text-primary">
           Daftar Pembayaran SPP Terakhir
         </h3>
       </div>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+        <table className="min-w-full divide-y divide-neutral">
+          <thead className="bg-base-300">
             <tr>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-primary-content uppercase tracking-wider"
               >
                 Murid
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-primary-content uppercase tracking-wider"
               >
                 Bulan/Tahun
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-primary-content uppercase tracking-wider"
               >
                 Jumlah
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-primary-content uppercase tracking-wider"
               >
                 Tanggal Bayar
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium text-primary-content uppercase tracking-wider"
               >
                 Status
               </th>
@@ -103,40 +103,42 @@ const SppList = ({ payments, onEdit, onDelete }) => {
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-base-100 divide-y divide-neutral">
             {data.map((payment) => (
-              <tr key={payment.id} className="hover:bg-gray-50">
+              <tr key={payment.id} className="hover:bg-base-300">
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary text-primary-content flex items-center justify-center">
                       <FiUser className="h-5 w-5" />
                     </div>
                     <div className="ml-4">
-                      <div className="text-sm font-medium text-gray-900">
+                      <div className="text-sm font-medium text-primary">
                         {payment.student.name}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-primary-content opacity-70">
                         {payment.student.id}
                       </div>
                     </div>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">{payment.month}</div>
-                  <div className="text-sm text-gray-500">{payment.year}</div>
+                  <div className="text-sm text-primary">{payment.month}</div>
+                  <div className="text-sm text-primary-content opacity-70">
+                    {payment.year}
+                  </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
-                    <FiDollarSign className="flex-shrink-0 h-4 w-4 text-gray-400 mr-1" />
-                    <span className="text-sm font-medium text-gray-900">
+                    <FiDollarSign className="flex-shrink-0 h-4 w-4 text-primary-content opacity-70 mr-1" />
+                    <span className="text-sm font-medium text-primary">
                       {formatCurrency(payment.amount)}
                     </span>
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
-                    <FiCalendar className="flex-shrink-0 h-4 w-4 text-gray-400 mr-1" />
-                    <span className="text-sm text-gray-900">
+                    <FiCalendar className="flex-shrink-0 h-4 w-4 text-primary-content opacity-70 mr-1" />
+                    <span className="text-sm text-primary">
                       {new Date(payment.paymentDate).toLocaleDateString(
                         "id-ID"
                       )}
@@ -158,13 +160,13 @@ const SppList = ({ payments, onEdit, onDelete }) => {
                 <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                   <button
                     onClick={() => onEdit(payment)}
-                    className="text-blue-600 hover:text-blue-900 mr-3"
+                    className="text-primary hover:text-primary-focus mr-3"
                   >
                     <FiEdit className="h-5 w-5" />
                   </button>
                   <button
                     onClick={() => onDelete(payment.id)}
-                    className="text-red-600 hover:text-red-900"
+                    className="text-red-600 hover:text-red-800"
                   >
                     <FiTrash2 className="h-5 w-5" />
                   </button>

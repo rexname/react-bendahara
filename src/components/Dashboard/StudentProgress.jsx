@@ -22,7 +22,7 @@ const StudentProgress = () => {
   const maxValue = Math.max(...paymentData.map((item) => item.value));
 
   return (
-    <div className="bg-base-200 rounded-xl shadow-sm p-6 h-max">
+    <div className="card bg-base-200 shadow-md hover:shadow-lg transition-shadow p-6 h-max">
       <h3 className="text-lg font-semibold mb-4 text-primary">
         Pembayaran SPP dan Daftar Ulang
       </h3>
