@@ -10,7 +10,12 @@ import {
 const Pembayaran = () => {
   // Data statistik pembayaran
   const paymentStats = [
-    { title: "Total Pembayaran", amount: 12500000, icon: FiDollarSign },
+    {
+      title: "Total Pembayaran",
+      amount: 12500000,
+      icon: FiDollarSign,
+      description: "",
+    },
     {
       title: "Daftar Ulang",
       amount: 3000000,
@@ -41,7 +46,7 @@ const Pembayaran = () => {
       </div>
 
       {/* Statistik Pembayaran */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
         {paymentStats.map((stat, index) => (
           <PaymentCard key={index} {...stat} />
         ))}
